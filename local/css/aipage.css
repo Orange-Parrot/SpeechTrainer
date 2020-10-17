@@ -1,0 +1,90 @@
+#phrase-input{
+    /* background-color: rgb(223, 110, 110); */
+    width:60%;
+    height:40%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cards-container{
+    background-color: rgb(209, 209, 209);
+    
+    margin-top: 2%;
+    width: 97%; 
+    height:70%;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;  
+}
+
+.phrase-card{
+    background-color: #fff;
+    height:10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100px;
+
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top:1%;
+    padding-bottom:1%;
+
+    margin:1%
+}
+
+h2{
+    color: rgb(85, 85, 85);
+}
+
+input{
+    width:60%;
+    height:8%;
+    border-radius: 100px;
+    border:none;
+
+    background-color: rgb(209, 209, 209);
+
+    animation-name: "shrink-input";
+    animation-duration: 300ms;
+
+    text-align: center;
+}
+
+input:hover{
+    width:80%;
+    animation-name: "expand-input";
+    animation-duration: 300ms;
+}
+
+input:focus{
+    width:80%;
+    animation-name: "expand-input";
+    animation-duration: 300ms;
+}
+
+
+@keyframes expand-input{
+    from{
+        width: 60%;
+    }
+    to{
+        width: 80%;
+    }
+}
+
+@keyframes shrink-input{
+    from{
+        width: 80%;
+    }
+    to{
+        width: 60%;
+    }
+}
