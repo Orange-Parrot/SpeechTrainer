@@ -4,9 +4,9 @@ from pydub import AudioSegment, effects
 from pydub.silence import  split_on_silence
 import time
 
-AUDIO_FILE = "../assets/hello/wav/altered/curseTest.wav"
+AUDIO_FILE = "../assets/hello/wav/altered/templateSpeech.wav"
 lang = "en-US"
-noise_sample_duration = 3 # unit = s
+noise_sample_duration = 1 # unit = s
 
 ############################## AUDIO PREPROCESSING
 # normalize audio
@@ -70,9 +70,9 @@ def detect(audio_path, phrases=[]):
 r = sr.Recognizer()
 # set energy threshold
 r.dynamic_energy_threshold = True #dynamic threshold for better performance
-text, detections, contain_curses = detect(NORM_PATH, ['one'])
+text, detections, contain_curses = detect(NORM_PATH, ['so', 'was'])
 print("[prediction] words detected =", detections)
-print("[prediction] Recognized text: \n{tag}".format(tag=text))
+# print("[prediction] Recognized text: \n{tag}".format(tag=text))
 print("[prediction] Contains naughty words = {curse}".format(curse=contain_curses))
 
 # flush and clean temporary normalized file

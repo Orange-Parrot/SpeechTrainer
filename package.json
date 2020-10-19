@@ -1,0 +1,23 @@
+{
+  "name": "speechTrainer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orange-Parrot/SpeechTrainer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Orange-Parrot/SpeechTrainer/issues"
+  },
+  "homepage": "https://github.com/Orange-Parrot/SpeechTrainer#readme",
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}

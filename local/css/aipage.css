@@ -1,7 +1,7 @@
 #phrase-input{
     /* background-color: rgb(223, 110, 110); */
     width:60%;
-    height:40%;
+    height:20%;
 
     display: flex;
     justify-content: center;
@@ -19,7 +19,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
+}
+
+.tab-icon{
+    width:1.5vw;
+    height:1.5vw;
+    background-color: rgb(0, 0, 0);
+    margin-left: 10%;
+    margin-right: 5%;
 }
 
 .phrase-card{
@@ -46,7 +54,7 @@ h2{
 
 input{
     width:60%;
-    height:8%;
+    height:15%;
     border-radius: 100px;
     border:none;
 

@@ -9,7 +9,7 @@ print(data_path)
 
 config = {
     'verbose': False,
-    'audio_file': os.path.join(data_path, 'uh.wav'),
+    'audio_file': os.path.join(data_path, 'templateSpeech.wav'),
     'buffer_size': 2048,
     'no_search': False,
     'full_utt': False,
@@ -18,9 +18,12 @@ config = {
     'dict': os.path.join("model/", '1800.dict')
 }
 
+length = 0
+
 audio = AudioFile(**config)
 for phrase in audio:
     print(phrase)
+    length += 1
 
 # the amount of stutter detected
-print(len(audio))
+print(length)

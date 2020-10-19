@@ -1,1 +1,2 @@
 *.weights
+/node_modules

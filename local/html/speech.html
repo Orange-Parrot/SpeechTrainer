@@ -9,10 +9,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates&display=swap" rel="stylesheet"> 
+
     <title>Setup</title>
 </head>
 <body>
-
     <div class="side-bar">
         
         <div class="menu-tab" style="height:5%;justify-content: center; font-family: 'Montserrat Alternates', sans-serif; margin-bottom: 10%; margin-top: 5%;">
@@ -37,22 +37,20 @@
             </h1>
         </div>
         <div class="content">
-            <h1>Setup</h1>
+            <h1>Training</h1>
             <hr />
-            <div id="phrase-input">
-                <h2 style="color: #535353;">
-                    What words do you want to avoid during your speech?
-                </h2>
-                <input id="phrases" type="text" placeholder="(Seperate words with comma. Ex: crap,so)">
-            </div>
+            <h2 style="color: #535353;">Paste your speech in</h2>
+            <textarea name="speech" cols="100" rows="20"></textarea>
 
             <hr />
-            
-            <button style="background-color: rgb(113, 211, 100); margin-top: 5%;" id="cont">Continue</button>
+
+            <button style="background-color: rgb(113, 211, 100); margin-top: 5%;" id="startRec">Begin Speech</button>
+            <button style="background-color: rgb(255, 124, 124);" id="done">I'm Done</button>
+            <h1 class="count-down" id="info">3</h1>
         </div>
     </div>
 
-    <script src="../js/aipage.js"></script>
     <script src="../js/anime.min.js"></script>
+    <script src="../js/speech.js"></script>
 </body>
 </html>
