@@ -1,6 +1,19 @@
 const begin = document.querySelector("#startRec")
 var showInfo
 var switchFinished
+var params
+
+var constrainObj = {
+    audio:true,
+    video:false
+}
+
+function blobToFile(theBlob, fileName){
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    theBlob.lastModifiedDate = new Date();
+    theBlob.name = fileName;
+    return theBlob;
+}
 
 function initAnim(){
     showInfo = anime.timeline({
@@ -34,7 +47,7 @@ function initAnim(){
 }
 
 window.addEventListener('load', () => {
-    const params = (new URL(document.location)).searchParams.get("param").split(',')
+    params = (new URL(document.location)).searchParams.get("param").split(',')
     initAnim()
     anime.set('#info', {
         translateY:200
@@ -45,18 +58,54 @@ window.addEventListener('load', () => {
 })
 
 begin.addEventListener('click', () => {
-    showInfo.play()
-    var countDown = document.querySelector(".count-down")
-    setTimeout(() => {
-        countDown.innerHTML="2"
-    }, 1000)
-    setTimeout(() => {
-        countDown.innerHTML="1"
-    }, 2000)
-    setTimeout(() => {
-        countDown.innerHTML="Begin!"
-    }, 3000)
-    setTimeout(() => {
-        switchFinished.play()
-    }, 4000)
+
+    navigator.mediaDevices.getUserMedia(constrainObj).then((mediaStreamObj) => {
+        showInfo.play()
+
+        // initialize audio capture
+        let mediaRecorder = new MediaRecorder(mediaStreamObj)
+
+        chunks = []
+
+        mediaRecorder.start();
+        console.log(mediaRecorder.state)
+
+        let done = document.querySelector("#done")
+        done.addEventListener('click', () => {
+            mediaRecorder.stop()
+            console.log(mediaRecorder.state)
+        })
+
+        mediaRecorder.ondataavailable = (ev) => {
+            chunks.push(ev.data)
+        }
+
+        mediaRecorder.onstop = () => {
+            let blob = new Blob(chunks, {type : 'audio/wav;'})
+            chunks = []
+
+            let url = "results.html?param=" + encodeURIComponent(params)
+            let wavFile = blobToFile(blob, '123.wav')
+            localStorage.setItem("audio", wavFile)
+            window.location = url;
+        }
+
+        var countDown = document.querySelector(".count-down")
+        setTimeout(() => {
+            countDown.innerHTML="2"
+        }, 100)
+        setTimeout(() => {
+            countDown.innerHTML="1"
+        }, 200)
+        setTimeout(() => {
+            countDown.innerHTML="Begin!"
+        }, 300)
+        setTimeout(() => {
+            switchFinished.play()
+        }, 400)
+    }) .catch(function(err){
+        alert("error")
+    })
+
+    
 })

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/aipage.css">
+    <link rel="stylesheet" href="../css/speech.css">
+    <link rel="stylesheet" href="../css/results.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates&display=swap" rel="stylesheet"> 
+
+    <style> 
+        .loading {
+            width: 100px;
+            height: 100px;
+
+            margin:2%;
+            
+            background-color: red;
+            animation-name: animation;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        .blink {
+            background-color: whitesmoke;
+            animation-name: flash_animation;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes animation {
+            0%   {background-color:red; border-radius: 5px/5px;}
+            25%  {background-color:gold; transform:rotate(-45deg); border-radius: 50px / 50px;}
+            50%  {background-color:cornflowerblue; transform:rotate(90deg); border-radius: 0; transform: skew(-20deg);;}
+            75%  {background-color:green; transform:rotate(135deg); border-radius: 25px / 25px;}
+            100% {background-color:red; transform:rotate(90deg); border-radius: 5px/5px;}
+        }
+
+        @keyframes flash_animation{
+            0%   {background-color:rgb(255, 207, 207);}
+            25%  {background-color:rgb(255, 248, 209);}
+            50%  {background-color:rgb(211, 226, 255);}
+            75%  {background-color:rgb(184, 255, 184)}
+            100% {background-color:rgb(255, 207, 207);}
+        }
+        </style>
+
+    <title>Setup</title>
+</head>
+<body>
+    <div class="side-bar">
+        
+        <div class="menu-tab" style="height:5%;justify-content: center; font-family: 'Montserrat Alternates', sans-serif; margin-bottom: 10%; margin-top: 5%;">
+            <h2 class="unselectable">Speech Assist</h2>
+        </div>
+
+        <div class="menu-tab selected">
+            <div class="circle tab-icon" style="background-color: rgb(255, 112, 112);"></div>
+            <h3 class="unselectable">Self training</h3>
+        </div>
+
+        <div class="menu-tab">
+            <div class="circle tab-icon" style="background-color: rgb(255, 193, 112);"></div>
+            <h3 class="unselectable">Peer training</h3>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="nav-info">
+            <h1 style="color: rgb(243, 243, 243);">
+                Self Training
+            </h1>
+        </div>
+        <div class="content">
+            <h1>Training</h1>
+            <hr/>
+            <h2 style="color: #535353;">Loading Your Results...</h2>
+            <div class="loading"></div>
+            <h2 style="color: #535353;" class="results">You stuttered</h2>
+            <h2 style="color: #535353;" class="results">You said {word} {times}</h2>
+            <hr id="bottomLine">
+        </div>
+    </div>
+
+    <script src="../js/anime.min.js"></script>
+    <script src="../js/results.js"></script>
+</body>
+</html>
